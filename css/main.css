@@ -899,7 +899,11 @@ body {
 .theme-beige .reveal a,
 .theme-beige .reveal a:hover,
 .theme-beige .reveal .controls a.enabled {
+<<<<<<< HEAD
 	color: #8b743d;
+=======
+	color: red;
+>>>>>>> master
 }
 
 .theme-beige .reveal .progress span,
@@ -1006,3 +1010,14 @@ body {
 .reveal aside.notes {
 	display: none;
 }
+<<<<<<< HEAD
+=======
+
+code {
+        box-shadow: 10px 10px 5px #AAA;
+}
+
+.reveal .slides {
+    top: 40%;
+}
+>>>>>>> master

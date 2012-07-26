@@ -32,8 +32,9 @@
 			<div class="slides">
 				<section>
 					<h1>ExtJS 4</h1>
-					<h3 class="inverted">Una introducción muy corta, 20 minutos
-                    y arreando</h3>
+					<h3 class="inverted">Una introducción muy corta</h3>
+                    <h3 class="inverted">20 minutos y arreando</h3>
+                    <a href="#/2"><img src="img/right.jpg" /></a>
 					<script>
 						// Delicously hacky. Look away.
 						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) ) document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
@@ -54,6 +55,7 @@
 				
 				<!-- Example of nested vertical slides -->
 				<section>
+<<<<<<< HEAD
 					<section>
 						<h2>Vertical Slides</h2>
 						<p>
@@ -238,6 +240,68 @@ function linkify( selector ) {
 				<section>
 					<h1>THE END</h1>
 					<h3 class="inverted">BY Hakim El Hattab / hakim.se</h3>
+=======
+					<h2>Qué añade ExtJS 4 a ExtJS 3</h2>
+                    <ul style="margin: 2em;">
+                        <li style="margin-bottom: 1em;">Más rápido.</li>
+                        <li style="margin-bottom: 1em;">Más estable</li>
+                        <li style="margin-bottom: 1em;"><strong style="font-size: 1.6em;">Más fácil de aprender y usar</strong></li>
+                    </ul>
+                    <a href="#/3"><img src="img/right.jpg" /></a>
+				</section>
+
+				<section>
+				    <section>
+					    <h2>Carga dinámica de módulos</h2>
+					    <p>
+						    Press <strong>ESC</strong> to enter the slide overview!
+					    </p>
+                        <a href="#/3/1"><img src="img/down.jpg" /></a>
+				    </section>
+                    <section>
+                        <h2>En ExtJS 3</h2>
+                        <p>Cargamos las librerías y aplicaciones de manera independiente en nuestro <strong>index.html</strong></p>
+                        <pre style="width: 1000px;"><code contenteditable>
+&lt;script type="text/javascript" src="ext-3.4.0/adapter/ext/ext-base.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="ext-3.4.0/ext-all-debug.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="ckeditor-3.6.1/ckeditor.js"&gt;&lt;/script&gt;
+...
+... 25 carga de archivos más ...
+...
+&lt;script type="text/javascript" src="js/tags.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/enlaces.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/vtypes.js"&gt;&lt;/script&gt;
+
+                        </code></pre>
+                        <a href="#/3/2"><img src="img/down.jpg" /></a>
+                    </section>
+                    <section>
+                        <h2>En ExtJS 4</h2>
+                        <p>La carga de librerías y dependencias se realiza de manera dinámica dentro de nuestra aplicación.</p>
+                        <p>El index.html queda así:</p>
+                        <pre style="width: 1000px;"><code contenteditable>
+&lt;script type="text/javascript" src="app/Application.js"&gt;&lt;/script&gt;
+                        </code></pre>
+                        <p>En la aplicación (Application.js) tendremos esto:</p>
+                        <pre style="width: 1000px;"><code contenteditable>
+Ext.Loader.setConfig(
+{
+    enabled : true,
+    paths :
+    {
+        'Ext.ux' : '/hor/examples/ux',
+        'Ext.ux.uji' : '/hor/Ext/ux/uji',
+    }
+});
+
+Ext.require('Ext.data.proxy.Rest');
+Ext.require('Ext.data.reader.Xml');
+... Unas cuantas líneas más ...
+Ext.require('Extensible.calendar.data.EventStore');
+Ext.require('Extensible.calendar.CalendarPanel');
+                        </code></pre>
+                    </section>
+>>>>>>> master
 				</section>
 			</div>
 
