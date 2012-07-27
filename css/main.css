@@ -1010,14 +1010,12 @@ body {
 .reveal aside.notes {
 	display: none;
 }
-<<<<<<< HEAD
-=======
 
 code {
+        border-radius: 4px;
         box-shadow: 10px 10px 5px #AAA;
 }
 
 .reveal .slides {
     top: 40%;
 }
->>>>>>> master

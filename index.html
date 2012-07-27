@@ -128,6 +128,7 @@ Ext.require('Extensible.calendar.CalendarPanel');
                         <h2>En ExtJS 3</h2>
                         <p>Los archivos <strong>.js</strong> los poníamos todos en la misma carpeta sin orden ni concierto.</p>
                         <img src="img/estructura-extjs3.png" />
+                        <br />
                         <a href="#/4/2"><img src="img/down.jpg" /></a>
                     </section>
                     <section>
@@ -164,6 +165,45 @@ Ext.require('Extensible.calendar.CalendarPanel');
                         <a href="#/5/3"><img src="img/down.jpg" /></a>
                     </section>
 				</section>
+
+                <section>
+                    <h2>Ejemplo</h2>
+                    <p>Vamos a ver este mini-ejemplo con todo esto funcionando, aquí:</p>
+                    <p><a target="_new" href="http://haddock.si.uji.es/extjs4-sample/">http://haddock.si.uji.es/extjs4-sample/</a></p>
+                    <a href="#/5/1"><img src="img/right.jpg" /></a>
+                </section>
+                <section>
+                    <section>
+                        <h2>Selectores</h2>
+                        <p>Una de las novedades que hemos encontrado más útiles. Nos proporcionan la manera de buscar y acceder cualquier componente de nuestra aplicación de manera directa.</p>
+                        <br />
+                        <h3>up() / down()</h3>
+                        <p>A partir de un componente podemos bajar o subir en el arbol DOM hasta encontrar la siguiente ocurrencia.</p>
+                        <br />
+                        <p>Ejemplo:</p>
+                        <pre><code contenteditable>
+function pintaBotondeRojo(formulario) {
+    var boton = formulario.down("button[action=cancel]");
+    boton.setStyle("background", "red");
+}
+                        </code></pre>
+                        <a href="#/6/1"><img src="img/down.jpg" /></a>
+                    </section>
+                    <section>
+                        <h2>Selectores</h2>
+                        <p>No siempre tenemos una referencia a un componente y hay que buscarlo. En ExtJS3 nos guardábamos referencias dentro de los componentes. En ExtJS4 tenemos el ComponentQuery.</p>
+
+                        <br />
+                        <p>Ejemplo:</p>
+                        <pre><code contenteditable>
+function pintaBotondeRojo() {
+    var formulario = Ext.ComponentQuery.query("form[name=principal]")[0];
+    var boton = formulario.down("button[action=cancel]");
+    boton.setStyle("background", "red");
+}
+                        </code></pre>
+                    </section>
+                </section>
 
                 <section>
                     <h3>Fin</h3>
