@@ -33,7 +33,7 @@
 				<section>
 					<h1>ExtJS 4</h1>
 					<h3 class="inverted">Una introducción muy corta</h3>
-                    <h3 class="inverted">20 minutos y arreando</h3>
+                    <h3 class="inverted">25 minutos y nos vamos de vacaciones</h3>
                     <a href="#/2"><img src="img/right.jpg" /></a>
 					<script>
 						// Delicously hacky. Look away.
@@ -47,6 +47,8 @@
                         Framework de desarrollo web de aplicaciones cliente que nos proporciona facilidades para comunicarnos con el servidor mediante un interfaz REST y varios componentes que acercan la apariencia de aplicación de escritorio a la aplicación web que desarrollamos.
 					</p>
                     <img src="img/sencha.png" />
+                    <br />
+                    <a href="#/2"><img src="img/right.jpg" /></a>
 				</section>
 				
 				<!-- Example of nested vertical slides -->
@@ -54,8 +56,8 @@
 					<h2>Qué añade ExtJS 4 a ExtJS 3</h2>
                     <ul style="margin: 2em;">
                         <li style="margin-bottom: 1em;">Más rápido.</li>
-                        <li style="margin-bottom: 1em;">Más estable</li>
-                        <li style="margin-bottom: 1em;"><strong style="font-size: 1.6em;">Más fácil de aprender y usar</strong></li>
+                        <li style="margin-bottom: 1em;">Más estable.</li>
+                        <li style="margin-bottom: 1em;"><strong style="font-size: 1.6em;">Más fácil de aprender y usar.</strong></li>
                     </ul>
                     <a href="#/3"><img src="img/right.jpg" /></a>
 				</section>
@@ -71,7 +73,7 @@
                     <section>
                         <h2>En ExtJS 3</h2>
                         <p>Cargamos las librerías y aplicaciones de manera independiente en nuestro <strong>index.html</strong></p>
-                        <pre style="width: 1000px;"><code contenteditable>
+                        <pre><code contenteditable>
 &lt;script type="text/javascript" src="ext-3.4.0/adapter/ext/ext-base.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="ext-3.4.0/ext-all-debug.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="ckeditor-3.6.1/ckeditor.js"&gt;&lt;/script&gt;
@@ -89,11 +91,12 @@
                         <h2>En ExtJS 4</h2>
                         <p>La carga de librerías y dependencias se realiza de manera dinámica dentro de nuestra aplicación.</p>
                         <p>El index.html queda así:</p>
-                        <pre style="width: 1000px;"><code contenteditable>
+                        <pre><code contenteditable>
+&lt;script type="text/javascript" src="ext/ext-all.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="app/Application.js"&gt;&lt;/script&gt;
                         </code></pre>
                         <p>En la aplicación (Application.js) tendremos esto:</p>
-                        <pre style="width: 1000px;"><code contenteditable>
+                        <pre><code contenteditable>
 Ext.Loader.setConfig(
 {
     enabled : true,
@@ -107,11 +110,67 @@ Ext.Loader.setConfig(
 Ext.require('Ext.data.proxy.Rest');
 Ext.require('Ext.data.reader.Xml');
 ... Unas cuantas líneas más ...
-Ext.require('Extensible.calendar.data.EventStore');
+Ext.require('Ext.ux.uji.form.LookupComboBox');
 Ext.require('Extensible.calendar.CalendarPanel');
                         </code></pre>
                     </section>
 				</section>
+
+				<section>
+				    <section>
+					    <h2>Estructura de los archivos de desarrollo</h2>
+					    <p>
+						    Aprovechando el patrón de desarrollo MVC (que luego comentaremos), existe un convenio de estructuración del código de un proyecto ExtJS 4 en archivos y directorios.
+					    </p>
+                        <a href="#/4/1"><img src="img/down.jpg" /></a>
+				    </section>
+                    <section>
+                        <h2>En ExtJS 3</h2>
+                        <p>Los archivos <strong>.js</strong> los poníamos todos en la misma carpeta sin orden ni concierto.</p>
+                        <img src="img/estructura-extjs3.png" />
+                        <a href="#/4/2"><img src="img/down.jpg" /></a>
+                    </section>
+                    <section>
+                        <h2>En ExtJS 4</h2>
+                        <p>Utilizamos una estructura separando en carpetas los modelos, stores, vistas y controladores.</p>
+                        <img src="img/estructura-extjs4.png" />
+                    </section>
+				</section>
+
+				<section>
+				    <section>
+					    <h2>El patrón MVC</h2>
+					    <p>
+						   Esta versión de <strong>ExtJS</strong> nos permite (no obliga) a utilizar un patrón de desarrollo Modelo/Vista/Controlador en nuestro código, con algunas características y peculiaridades. 
+					    </p>
+                        <img src="img/mvc.png" /><br />
+                        <a href="#/5/1"><img src="img/down.jpg" /></a>
+				    </section>
+                    <section>
+                        <h2>En ExtJS 3</h2>
+                        <p>Cada componente que desarrollamos es un módulo independiente que lo hace todo por sí mismo: recibe/emite eventos, dibuja el interfaz de usuario y define sus Stores todo en un único archivo.</p>
+                        <p>Ejemplo: <a href="http://devel.uji.es/ocw/js/cursoForm.js">http://devel.uji.es/ocw/js/cursoForm.js</a></p>
+                        <a href="#/5/2"><img src="img/down.jpg" /></a>
+                    </section>
+                    <section>
+                        <h2>En ExtJS 4</h2>
+                        <p>Separamos los datos, el acceso a los datos, la interfaz de usuario y la lógica en archivos independientes.</p>
+                        <ul style="margin-top: 1em;">
+                        <li style="margin-bottom: .5em;"><strong>Vista:</strong> Se encarga de representar en pantalla la interfaz de usuario.</li>
+                        <li style="margin-bottom: .5em;"><strong>Controlador:</strong> Se encarga de la lógica. Escuchará los eventos que se producen en la vista y reaccionará con las acciones adecuadas.</li>
+                        <li style="margin-bottom: .5em;"><strong>Modelo:</strong> Se encarga de definir la estructura de la información para hacer persistir los datos.</li>
+                        <li style="margin-bottom: .5em;"><strong>Store:</strong> Se encarga de comunicar un modelo con el backend.</li>
+                        </ul>
+                        <a href="#/5/3"><img src="img/down.jpg" /></a>
+                    </section>
+				</section>
+
+                <section>
+                    <h3>Fin</h3>
+                    <h1>Vámonos de vacaciones a Waikiki</h1>
+                    <img src="img/waikiki.jpg" />
+                </section>
+
 			</div>
 
 			<!-- The navigational controls UI -->
